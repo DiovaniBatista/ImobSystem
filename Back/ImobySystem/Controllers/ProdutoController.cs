@@ -12,7 +12,7 @@ namespace ImobySystem.Controllers
             _produtoService = produtoService;
         }
         [HttpPost("Create")]
-        public IActionResult Create(ProdutoCreateDto entrada)
+        public IActionResult Create([FromBody]ProdutoCreateDto entrada)
         {
             var result = _produtoService.Create(entrada);
             return Ok(result);
@@ -29,6 +29,17 @@ namespace ImobySystem.Controllers
             var result = _produtoService.GetById(id);
             return Ok(result);
         }
-
+        [HttpDelete("Delete")]
+        public IActionResult Delete(int id)
+        {
+            var result = _produtoService.Delete(id);
+            return Ok(result);
+        }
+        [HttpPut("Update")]
+        public IActionResult Update(ProdutoUpdateDto entrada)
+        {
+            var result = _produtoService.Update(entrada);
+            return Ok(result);
+        }
     }
 }

@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-  string connectionString = "Server=seuservidor;Database=nomedobanco;User=usuario;Password=senha;";
+  string connectionString = "Server=localhost;Database=ImobSystem;Trusted_Connection=true;MultipleActiveResultSets=true;trustservercertificate=true";
 builder.Services.AddTransient<IDbConnection>((sp) => new SqlConnection(connectionString));
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
